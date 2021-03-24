@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Document</title>
+</head>
+<body>
+  <form name="forms" onsubmit="return MyFun()">
+    <span>User Name:</span>
+    <input type="text" id="u_name" value="">
+    <p id="Message"></p>
+    <span>Password:</span>
+    <input type="password" id="psswrd" value="">
+    <p id="msg"></p>
+    <span>Email:</span>
+    <input type="text" id="mail" value="">
+    <p id="e_msg"></p>
+    <span>Phone Number:</span>
+    <input type="text"id="Pno" value="">
+    <p id="Pnumber" ></p>
+    <span>Gender:</span>
+    <input type="radio" id="gender" name="gender" value="Male">Male
+    <input type="radio" id="gender" name="gender" value="Female">Female
+    <input type="radio" id="gender" name="gender" value="other"> Other
+    <p id="Rdio" ></p>
+    <input type="submit" id="btn" value="Submit"></input>
+  </form>
+  <script>
+    function MyFun(){
+      // User Name
+      var correct=/^[A-Za-z]+$/;
+      var a = document.getElementById("u_name").value;
+      if(a=="")
+      {
+        document.getElementById("Message").innerHTML="**Enter the valid input";
+        return false; 
+      }
+      if(a.length<3){
+        document.getElementById("Message").innerHTML="**Enter more then 4 character ";
+        return false;
+      }
+      if(a.length>20){
+        document.getElementById("Message").innerHTML="**Enter less then 20 characters";
+        return false;
+      }
+      if(a.match(correct))
+        true;
+      else{
+        document.getElementById("Message").innerHTML="**Enter only alphabates";
+        return false;
+      }
+      // Password
+      var b=document.getElementById("psswrd").value;
+      if(b=="")
+      {
+        document.getElementById("msg").innerHTML="**Fill password";
+        return false; 
+      }
+      if(b.length<8){
+        document.getElementById("msg").innerHTML="**Enter more then 8 number ";
+        return false;
+      }
+      if(b.length>15){
+        document.getElementById("msg").innerHTML="**Enter less then 15 number";
+        return false;
+      }
+      // Email
+      var c= document.getElementById("mail").value;
+      if(c.indexOf('@')<=0){
+        document.getElementById("e_msg").innerHTML="invalid Email";
+        return false;
+      }
+      if((c.charAt(c.length-4)!='.') && (c.charAt(c.lenght-3)!='.')){
+        document.getElementById("e_msg").innerHTML="invalid Email";
+        return false;
+      }
+      // Phone Number
+      var d=document.getElementById("Pno").value;
+      if(d==""){
+        document.getElementById("Pnumber").innerHTML="Invalid Number";
+        return false;
+      }
+      if(isNaN(d)){
+        document.getElementById("Pnumber").innerHTML="It's not a  Number";
+        return false;
+      }
+      if(d.length<10){
+        document.getElementById("Pnumber").innerHTML="It's not aaaa Phone Number";
+        return false;
+      }
+      if(d.length>10){
+        document.getElementById("Pnumber").innerHTML="It's not a Phone Number";
+        return false;
+      }
+      if((a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7)){
+        document.getElementById("Pnumber").innerHTML="It's nnnnnot a Phone Number";
+        return false;
+      }
+      var e= document.forms.gender;
+      for(var i=0; i<e.lenght; i++){
+        if(e[i].checked==true){
+          return true;
+        }
+      document.getElementById("Rdio").innerHTML="Select anyone";
+      return false;
+      }
+    }
+  </script>
+</body>
+</html>

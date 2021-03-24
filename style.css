@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
+#Message{
+    color: red;
+    font-size: 12px;
+}
+#msg{
+    color: red;
+    font-size: 12px;
+}
+#e_msg{
+    color: red;
+    font-size: 12px;   
+}
+#Pnumber{
+    color: red;
+    font-size: 12px;
+}
